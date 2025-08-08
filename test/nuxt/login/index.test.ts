@@ -36,6 +36,42 @@ describe('LoginForm', () => {
     expect(wrapper.findComponent(Button).props('label')).toBe('Entrar')
   })
 
+  it('deve apresentar mensagem de erro para email invalido', async () => {
+    const wrapper = mount(LoginForm, mountOptions)
+
+    const usernameInput = wrapper.findComponent(InputText)
+    const passwordInput = wrapper.findComponent(Password).find('input')
+
+    expect(usernameInput.exists()).toBe(true)
+    expect(passwordInput.exists()).toBe(true)
+
+    await usernameInput.setValue('usuario')
+    await passwordInput.setValue('senhaSegura123')
+
+    await wrapper.find('form').trigger('submit.prevent')
+
+    expect(wrapper.find('small').text()).toBe('E-mail inválido.')
+  })
+
+  it('deve apresentar mensagem de erro para senha invalida', async () => {
+    const wrapper = mount(LoginForm, mountOptions)
+
+    const usernameInput = wrapper.findComponent(InputText)
+    const passwordInput = wrapper.findComponent(Password).find('input')
+
+    expect(usernameInput.exists()).toBe(true)
+    expect(passwordInput.exists()).toBe(true)
+
+    await usernameInput.setValue('usuario@teste.com')
+    await passwordInput.setValue('senha')
+
+    await wrapper.find('form').trigger('submit.prevent')
+
+    expect(wrapper.find('small').text()).toBe(
+      'A senha deve ter no mínimo 6 caracteres.',
+    )
+  })
+
   it('deve preencher os campos e redirecionar na submissão', async () => {
     const wrapper = mount(LoginForm, mountOptions)
 
