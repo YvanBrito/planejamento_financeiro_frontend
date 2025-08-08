@@ -11,15 +11,21 @@
   },
   "dependencies": {
     "@nuxt/eslint": "^1.7.1",
-    "@nuxt/test-utils": "^3.19.2",
     "@primeuix/themes": "^1.2.3",
+    "@tailwindcss/vite": "^4.1.11",
     "eslint": "^9.32.0",
     "nuxt": "^4.0.1",
+    "primeicons": "^7.0.0",
     "primevue": "^4.3.7",
+    "tailwindcss": "^4.1.11",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@primevue/nuxt-module": "^4.3.7"
+    "@nuxt/test-utils": "^3.19.2",
+    "@primevue/nuxt-module": "^4.3.7",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^18.0.1",
+    "vitest": "^3.2.4"
   }
 }

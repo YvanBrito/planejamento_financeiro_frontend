@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    // Configuração para o servidor (Node.js)
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "server: nuxt",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "envFile": "${workspaceFolder}/.env",
+      "outputCapture": "std",
+      "console": "integratedTerminal"
+    },
+    // Configuração para o cliente (navegador)
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "client: chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    }
+  ],
+  "compounds": [
+    // Configuração composta para rodar os dois ao mesmo tempo
+    {
+      "name": "fullstack: nuxt",
+      "configurations": ["server: nuxt", "client: chrome"]
+    }
+  ]
+}
