@@ -1,4 +1,0 @@
-<template>
-  <Toast />
-  <NuxtPage />
-</template>
