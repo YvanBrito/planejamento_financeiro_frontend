@@ -12,13 +12,9 @@ export default function LoginPage() {
 
   const { pending } = useFormStatus()
 
-  // Redireciona o usuário se o login for bem-sucedido
   useEffect(() => {
     if (!errorMessage && !pending) {
-      // Checa se o login foi bem-sucedido e não está pendente
-      // Você pode precisar de uma verificação mais robusta,
-      // como o status de uma sessão, dependendo da sua lógica.
-      // Por exemplo: if (status === 'authenticated')
+      router.push('/dashboard')
     }
   }, [errorMessage, pending, router])
 

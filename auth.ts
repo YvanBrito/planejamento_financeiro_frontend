@@ -21,7 +21,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         if (res.ok && user) {
           return {
             ...user,
-            accessToken: user.token,
           }
         }
         return null
