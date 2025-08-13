@@ -10,14 +10,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        console.log(credentials)
         const res = await fetch('http://localhost:8080/auth/login', {
           method: 'POST',
           body: JSON.stringify(credentials),
           headers: { 'Content-Type': 'application/json' },
         })
-
-        console.log(res)
 
         const user = await res.json()
 
