@@ -7,7 +7,9 @@ export default async function DashboardPage() {
     <div>
       <h1>Página do Dashboard</h1>
       <p>Conteúdo exclusivo para usuários logados.</p>
-      <p>Bem-vindo, {session?.user.name}!</p>
+      <p>
+        Bem-vindo, {session?.user.name}! Seu email é {session?.user.email}
+      </p>
     </div>
   )
 }
